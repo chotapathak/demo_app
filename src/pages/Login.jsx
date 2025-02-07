@@ -11,7 +11,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const navigate = useNavigate();
-    const { login } = useAuth();
+    const { login, theme } = useAuth();
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -25,7 +25,7 @@ const Login = () => {
     };
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className={`flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900`}>
             <Card className="w-[350px]">
                 <CardHeader>
                     <CardTitle>Login to Banking App</CardTitle>
