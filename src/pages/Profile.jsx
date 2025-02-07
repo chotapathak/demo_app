@@ -32,13 +32,13 @@ const Profile = () => {
 
     return (
         <div className="grid gap-6">
-            <h2 className="text-3xl font-bold">Profile</h2>
+            <h2 className="text-3xl font-bold dark:text-white">Profile</h2>
 
             <div className="grid gap-6">
                 {/* Personal Information */}
-                <Card>
+                <Card className="dark:border-gray-700">
                     <CardHeader>
-                        <CardTitle className="flex items-center">
+                        <CardTitle className="flex items-center dark:text-white">
                             <User className="mr-2" /> Personal Information
                         </CardTitle>
                     </CardHeader>
@@ -134,55 +134,56 @@ const Profile = () => {
                 </Card>
 
                 {/* Preferences */}
-                <Card>
+                <Card className="dark:border-gray-700">
                     <CardHeader>
-                        <CardTitle>Preferences</CardTitle>
+                        <CardTitle className="dark:text-white">Preferences</CardTitle>
                     </CardHeader>
                     <CardContent>
                         <div className="grid md:grid-cols-3 gap-6">
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
-                                    <Bell className="w-5 h-5 mr-2 text-gray-500" />
+                                    <Bell className="w-5 h-5 mr-2 text-gray-500 dark:text-gray-400" />
                                     <div>
-                                        <div className="font-medium">Notifications</div>
-                                        <div className="text-sm text-gray-500">Receive email notifications</div>
+                                        <div className="font-medium dark:text-white">Notifications</div>
+                                        <div className="text-sm text-gray-500 dark:text-gray-400">Receive email notifications</div>
                                     </div>
                                 </div>
                                 <input
                                     type="checkbox"
                                     checked={preferences.notifications}
                                     onChange={(e) => handlePreferencesUpdate('notifications', e.target.checked)}
-                                    className="toggle"
+                                    className="toggle dark:bg-gray-700"
                                 />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
-                                    <Shield className="w-5 h-5 mr-2 text-gray-500" />
+                                    <Shield className="w-5 h-5 mr-2 text-gray-500 dark:text-gray-400" />
                                     <div>
-                                        <div className="font-medium">Two-Factor Auth</div>
-                                        <div className="text-sm text-gray-500">Enhanced account security</div>
+                                        <div className="font-medium dark:text-white">Two-Factor Auth</div>
+                                        <div className="text-sm text-gray-500 dark:text-gray-400">Enhanced account security</div>
                                     </div>
                                 </div>
                                 <input
                                     type="checkbox"
                                     checked={preferences.twoFactorAuth}
                                     onChange={(e) => handlePreferencesUpdate('twoFactorAuth', e.target.checked)}
-                                    className="toggle"
+                                    className="toggle dark:bg-gray-700"
                                 />
                             </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-center">
-                                    <Globe className="w-5 h-5 mr-2 text-gray-500" />
+                                    <Globe className="w-5 h-5 mr-2 text-gray-500 dark:text-gray-400" />
                                     <div>
-                                        <div className="font-medium">Language</div>
+                                        <div className="font-medium dark:text-white">Language</div>
                                         <select
                                             value={preferences.language}
                                             onChange={(e) => handlePreferencesUpdate('language', e.target.value)}
-                                            className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                            className="mt-1 block w-full py-2 px-3 border border-gray-300 dark:border-gray-600 bg-white dark:bg-gray-800 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm text-gray-900 dark:text-white"
                                         >
                                             <option value="English">English</option>
                                             <option value="Spanish">Spanish</option>
                                             <option value="French">French</option>
+                                            <option value="Hindi">Hindi</option>
                                         </select>
                                     </div>
                                 </div>
