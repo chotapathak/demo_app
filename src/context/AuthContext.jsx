@@ -4,24 +4,28 @@ import React, { createContext, useState, useContext, useEffect } from 'react';
 const EXCHANGE_RATE = 83.50;
 const mockUsers = [
     {
-        username: 'johndoe',
-        password: 'password123',
-        email: 'john@example.com',
-        phone: '+1 (555) 123-4567',
-        address: '123 Main St, New York, NY 10001',
-        balance: 5000,
+        username: 'demo',
+        password: 'demo123',
+        email: 'demo@example.com',
+        phone: '+91 98765 43210',
+        address: '123 Main St, Mumbai, India',
+        balance: 25000,
         accountType: 'Savings',
         accountNumber: '1234567890',
         joinDate: '2024-01-01',
         transactions: [
-            { id: 1, type: 'deposit', amount: 1000, date: '2024-02-01', description: 'Initial deposit' },
-            { id: 2, type: 'withdrawal', amount: 500, date: '2024-02-05', description: 'ATM withdrawal' }
+            { id: 1, type: 'deposit', amount: 10000, date: '2024-02-07', description: 'Salary Credit' },
+            { id: 2, type: 'withdrawal', amount: 2500, date: '2024-02-07', description: 'ATM Withdrawal' },
+            { id: 3, type: 'deposit', amount: 5000, date: '2024-02-06', description: 'Freelance Payment' },
+            { id: 4, type: 'withdrawal', amount: 1500, date: '2024-02-06', description: 'Utility Bill Payment' },
+            { id: 5, type: 'deposit', amount: 3000, date: '2024-02-05', description: 'Client Payment' },
+            { id: 6, type: 'withdrawal', amount: 800, date: '2024-02-05', description: 'Grocery Shopping' }
         ],
         preferences: {
             notifications: true,
             twoFactorAuth: false,
             language: 'English',
-            currency: 'USD',
+            currency: 'INR',
             theme: 'light'
         }
     }
@@ -167,21 +171,19 @@ export const AuthProvider = ({ children }) => {
         setIsLoggedIn(false);
     };
 
-    const value = {
-        currentUser,
-        isLoggedIn,
-        theme,
-        login,
-        register,
-        logout,
-        makeTransaction,
-        updateProfile,
-        updatePreferences,
-        EXCHANGE_RATE
-    };
-
     return (
-        <AuthContext.Provider value={value}>
+        <AuthContext.Provider value={{
+            currentUser,
+            isLoggedIn,
+            theme,
+            login,
+            register,
+            logout,
+            makeTransaction,
+            updateProfile,
+            updatePreferences,
+            EXCHANGE_RATE
+        }}>
             {children}
         </AuthContext.Provider>
     );
